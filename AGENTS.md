@@ -1,10 +1,16 @@
-# Aturan Proyek: Skripsi HC18 (pengukuran lingkar kepala janin)
+# Aturan Proyek: Skripsi HC18 (loss berbasis kontur pada U-Net)
 
 ## Konteks
-Skripsi membandingkan tiga paradigma pengukuran lingkar kepala janin (HC) pada dataset HC18: (A) segmentasi lalu ellipse fitting, (B) deteksi elips dengan oriented bounding box, (C) regresi langsung nilai HC. Pekerjaan agent di workspace ini adalah riset literatur, pengecekan fakta, dan inspeksi data. Agent tidak menulis naskah skripsi kecuali diminta lewat skill tersendiri.
+Judul skripsi: **Pengaruh Fungsi Loss Berbasis Kontur pada U-Net terhadap Akurasi Segmentasi dan Pengukuran Lingkar Kepala Janin pada Citra USG HC18 dengan Validasi Berbasis Subjek**.
+
+Skripsi menguji apakah fungsi loss berbasis kontur (contoh: boundary loss, Hausdorff-distance loss, active contour loss) pada U-Net mengubah akurasi segmentasi kepala janin dan akurasi pengukuran lingkar kepala (HC) dibanding loss berbasis region (Dice, cross-entropy), pada dataset HC18. HC dihitung dari mask segmentasi lewat ellipse fitting. Validasi dibagi per `group` (aturan kerja 5) supaya citra dari pemeriksaan yang sama tidak terbagi antara latih dan validasi. Daftar loss yang dibandingkan ditentukan pengguna; agent tidak menambah atau mengurangi daftar itu.
+
+Rancangan sebelum penggantian judul membandingkan tiga paradigma (segmentasi lalu ellipse fitting, deteksi elips dengan oriented bounding box, regresi langsung nilai HC). Deteksi OBB (YOLO26) dan regresi langsung kini hanya latar literatur, bukan tujuan penelitian. Materinya di skill `hc18-*` dipertahankan dan diberi penanda.
+
+Pekerjaan agent di workspace ini adalah riset literatur, pengecekan fakta, dan inspeksi data. Agent tidak menulis naskah skripsi kecuali diminta lewat skill tersendiri.
 
 ## Peta workspace
-- `.agents/skills/`: prosedur kerja. Skill riset umum: `riset-literatur`, `verifikasi-sumber`, `catatan-riset`, `evaluasi-sumber`, `format-sitasi`, `tinjauan-pustaka`. Skill khusus HC18: `hc18-p1-novelty`, `hc18-p2-referensi`, `hc18-p3-faktacheck`, `hc18-p4-data`.
+- `.agents/skills/`: prosedur kerja. Skill riset umum: `riset-literatur`, `verifikasi-sumber`, `catatan-riset`, `evaluasi-sumber`, `format-sitasi`, `tinjauan-pustaka`. Skill khusus HC18: `hc18-p1-novelty` (celah penelitian loss berbasis kontur), `hc18-p2-referensi` (31 referensi), `hc18-p3-faktacheck`, `hc18-p4-data`. Bagian skill yang berasal dari rancangan lama (YOLO26, OBB, deteksi elips) ditandai "rancangan lama".
 - `research-notes/`: semua hasil riset (Markdown). Nama berkas ditentukan skill.
 - `data/hc18/`: dataset resmi, **baca-saja**. Tidak masuk git.
 - `splits/`, `data/*_derived*/`: keluaran data turunan.
@@ -22,7 +28,7 @@ Skripsi membandingkan tiga paradigma pengukuran lingkar kepala janin (HC) pada d
 2. Simpan setiap hasil sebagai berkas Markdown di `research-notes/`. Ringkasan di chat atau artifact tidak menggantikan berkas itu.
 3. `data/hc18/` baca-saja. Jangan mengubah, memindahkan, atau menimpa berkas di dalamnya. Jangan menimpa berkas lain yang sudah ada: jika nama keluaran sudah dipakai, berhenti dan laporkan.
 4. Jangan mengunduh data atau kode dari sumber tidak resmi. Dataset resmi: Zenodo DOI 10.5281/zenodo.1322001.
-5. Istilah `group` berarti grup pemeriksaan menurut prefiks angka pada nama file. Jangan menyebutnya "pasien" atau "janin yang sama" kecuali sumber primer menyatakannya.
+5. Istilah `group` berarti grup pemeriksaan menurut prefiks angka pada nama file. Jangan menyebutnya "pasien" atau "janin yang sama" kecuali sumber primer menyatakannya. Kata "subjek" pada judul skripsi dioperasikan sebagai `group` ini. Selama sumber primer belum membuktikan bahwa prefiks mewakili pasien (pertanyaan D6 dan D7 di skill `hc18-p3-faktacheck`), tulis "validasi berbasis group (proxy subjek)" dan cantumkan batasannya. Keputusan memakai kata "subjek" di naskah ada pada pengguna dan dosen pembimbing.
 6. Sebelum menyerahkan hasil, jalankan `python scripts/lint_note.py <berkas hasil>` dan tempel keluarannya apa adanya di akhir laporan. Hasil lint adalah pemeriksaan format, bukan penilaian benar atau salah.
 
 ## Kontrak Output v2 (berlaku untuk semua skill riset dan hc18-*)

@@ -25,9 +25,10 @@ Buka halaman jurnal, prosiding, atau indeks (SINTA untuk jurnal Indonesia, Scopu
 Catat jawaban untuk setiap butir, atau `tidak dilaporkan` jika makalah tidak menyebutnya:
 1. **Tingkat pemisahan data:** per citra, per pemeriksaan, atau per pasien? Apakah augmentasi dilakukan sebelum atau sesudah pemisahan?
 2. **Set evaluasi:** set uji resmi (dengan label tersembunyi), validasi silang, atau sebagian data latih? Apakah set yang sama dipakai memilih model dan melaporkan hasil?
-3. **Metrik:** definisi persis (MAE, MAD, selisih absolut rata-rata, selisih bertanda), satuan (mm atau piksel), dan apakah dilaporkan per citra atau per pasien.
+3. **Metrik:** definisi persis (MAE, MAD, selisih absolut rata-rata, selisih bertanda), satuan (mm atau piksel), dan apakah dilaporkan per citra atau per pasien. Untuk metrik batas (HD, HD95, ASSD): satuan (piksel atau mm), persentil yang dipakai, dan perlakuan citra dengan prediksi kosong.
 4. **Pembanding:** apakah angka pembanding dari paper lain dihitung pada protokol yang sama? Jika tidak, perbandingan langsung tidak boleh disebut adil.
 5. **Ketersediaan:** apakah kode atau bobot dirilis?
+6. **Fungsi loss dan pengaturan latih** (untuk makalah yang membandingkan loss): daftar loss persis, bobot antar-komponen atau jadwalnya, apakah arsitektur, augmentasi, optimizer, dan seed dijaga sama antar-loss, dan berapa kali pelatihan diulang. Selisih kecil dari satu kali pelatihan tidak boleh disebut peningkatan tanpa penjelasan variasi antar-run.
 
 ## 4. Sumber non-makalah
 - Dokumentasi resmi atau spesifikasi: boleh untuk cara kerja teknis, bukan untuk klaim efektivitas.

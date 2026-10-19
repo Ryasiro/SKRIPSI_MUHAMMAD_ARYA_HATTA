@@ -47,6 +47,19 @@ Klaim negatif dengan rujukan ke baris Search log.
 ## Keluaran lint
 ```
 
+## Frontmatter untuk skill `hc18-*`
+Skill `hc18-*` memakai `prompt-id` sebagai pengganti `topic` (lint menerima salah satunya). Contoh untuk P1:
+```markdown
+---
+prompt-id: hc18-P1
+status: draft
+tanggal-jalan: <YYYY-MM-DD>
+model-agent: <nama model, bila diketahui>
+ringkasan: <tiga kalimat, tanpa menilai kelulusan>
+---
+```
+Bagian wajib (Log akses, Search log, Tabel klaim, Keterbatasan, Usulan perubahan ke rencana, Keluaran lint) sama dengan struktur di atas. Skill `hc18-p4-data` yang menjalankan kode tidak punya Search log berisi pencarian web, tetapi lint tetap menuntut bagiannya: tulis satu baris `tidak ada pencarian web | - | <tanggal> | tidak tersedia | skill inspeksi data lokal`. Lint juga menuntut Tabel klaim di setiap catatan. Untuk P4, isi dengan temuan yang bersumber dari berkas atau dokumentasi yang dibuka (kolom `URL` boleh berupa jalur berkas lokal yang tercatat di Log akses); angka hasil eksekusi tetap disalin dari log di `research-notes/hc18-P4-log/`.
+
 ## Siapa boleh menulis `status`
 - Agent penulis: hanya `draft`.
 - Agent `verifikasi-sumber`: tidak mengubah status berkas aslinya.

@@ -1,6 +1,10 @@
-# Skripsi HC18: pengukuran lingkar kepala janin (HC) dari citra USG
+# Skripsi HC18: fungsi loss berbasis kontur pada U-Net untuk segmentasi dan pengukuran lingkar kepala janin (HC)
+
+**Judul:** Pengaruh Fungsi Loss Berbasis Kontur pada U-Net terhadap Akurasi Segmentasi dan Pengukuran Lingkar Kepala Janin pada Citra USG HC18 dengan Validasi Berbasis Subjek
 
 Workspace untuk riset literatur, pengecekan fakta, dan inspeksi data skripsi, dirancang untuk Antigravity (juga terbaca oleh agent lain yang mengikuti `AGENTS.md`).
+
+Riwayat judul: pada 2026-10-19 judul diganti dari rancangan perbandingan tiga paradigma pengukuran HC. Ringkasan konteks baru ada di bagian Konteks `AGENTS.md`.
 
 ## Isi
 ```
@@ -13,7 +17,7 @@ CLAUDE.md                  satu baris, menunjuk ke AGENTS.md (kompatibilitas)
   evaluasi-sumber          kriteria menilai sumber, termasuk pencitraan medis
   format-sitasi            IEEE (bawaan) dan APA
   tinjauan-pustaka         susunan Bab 2 dari catatan terverifikasi
-  hc18-p1-novelty ... hc18-p4-data   tugas khusus HC18
+  hc18-p1-novelty ... hc18-p4-data   tugas khusus HC18 (celah loss berbasis kontur, referensi, fact-check, inspeksi data)
 scripts/
   lint_note.py             memeriksa format hasil agent; --hc-csv mencocokkan nama berkas dan nilai HC
   verify_hc18.py           pengecekan independen data HC18 (hanya membaca)
