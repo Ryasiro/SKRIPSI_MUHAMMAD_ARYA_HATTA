@@ -1,0 +1,17 @@
+# --- data dan keluaran besar (jangan di-commit) ---
+data/hc18/
+data/hc18_derived*/
+*.pt
+*.onnx
+runs/
+weights/
+*.zip
+# --- python / notebook ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+# --- lain-lain ---
+.DS_Store
+Thumbs.db
