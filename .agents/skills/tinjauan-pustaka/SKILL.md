@@ -8,7 +8,7 @@ description: Struktur bagian tinjauan pustaka (landasan teori, penelitian terkai
 Skill ini menyusun teks dari catatan riset. Ia tidak mencari sumber baru. Masukan: satu atau lebih berkas `research-notes/*.md` yang pengguna tunjuk. Pakai hanya klaim `VERIFIED-*`. Jika catatan masih `draft` dan belum punya berkas `.verifikasi.md`, tulis peringatan itu di awal keluaran.
 
 ## Struktur
-1. **Landasan teori:** konsep dan definisi yang dibutuhkan pembaca. Kutip sumber kanonik atau primer tiap konsep.
+1. **Landasan teori:** konsep dan definisi yang dibutuhkan pembaca. Kutip sumber kanonik atau primer tiap konsep. Untuk skripsi ini, konsep yang biasanya dibutuhkan: arsitektur U-Net; fungsi loss berbasis region (Dice, cross-entropy) dan berbasis kontur atau jarak (boundary, Hausdorff, active contour); metrik segmentasi (Dice, IoU) dan metrik batas (HD, HD95); fit elips dan perhitungan HC dari mask; serta validasi per group (StratifiedGroupKFold) dan alasannya. Konsep yang tidak punya klaim `VERIFIED-*` ditandai `[NEEDS SOURCE]`.
 2. **Penelitian terkait:** urut kronologis atau tematis, tidak dicampur. Sertakan tabel:
 
    | No | Penulis (Tahun) | Dataset dan protokol split | Metode | Hasil (angka dari sumber) | Perbedaan spesifik dengan penelitian ini | Klaim terkait |
